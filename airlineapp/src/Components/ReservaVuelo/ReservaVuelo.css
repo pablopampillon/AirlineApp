@@ -1,0 +1,28 @@
+.reserv{
+    border-radius: 20px;
+    display: flex;
+    position: absolute;
+    background-color: rgb(107, 107, 202, 0.3);
+    flex-direction: column;
+    padding-bottom: 40px;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+
+
+   
+}
+
+.fieldset{
+    float: left;
+    display: flex;
+    width: 100%;
+    border-radius: 20px;
+    justify-content: space-around; 
+    
+}
+.title1{
+    display: block;
+    float: left;
+    width: 100%;
+}
