@@ -1,0 +1,25 @@
+.row{
+    height: 100%;
+    display: flex;
+}
+
+.left{
+    width: 50%; 
+    float: left;
+}
+
+.right{
+    width: 50%; 
+    float: right;
+}
+
+.airlinePic1{
+    width: 20%;
+    height: auto;
+    margin-left: 2%;
+}
+
+
+.idFlightTxt{
+    margin: 5%;
+}
