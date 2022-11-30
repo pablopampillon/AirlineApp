@@ -7,7 +7,7 @@ const airlineLogo = require("./dummy-airline-pic.jpg");
 const FlightSingle = () => {
     return (
         <div className='flightSingleRes'>
-            <div id="contentFlightRes">
+            <div className="contentFlightRes">
                 <div className='row'>
                     <div className="left">
                         <img src={airlineLogo} alt="airlineLogo" className="airlinePic1" /> <p className='airlineTxt'><b>{"Iberia"}</b></p>
