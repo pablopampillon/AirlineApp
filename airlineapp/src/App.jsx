@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="App">
-      <FlightsList vuelosIda={vuelosIdaAux} vuelosVuelta={vuelosVueltaAux}></FlightsList>
+      <FlightsList idaVueltaCheck={true} vuelosIda={vuelosIdaAux} vuelosVuelta={vuelosVueltaAux}></FlightsList>
       {/* <ReservaVuelo/> */}
     </div>
   );

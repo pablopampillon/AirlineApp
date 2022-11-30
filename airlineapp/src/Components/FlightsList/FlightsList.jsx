@@ -3,12 +3,6 @@ import FlightSingle from './FlightSingle';
 
 
 const FlightsList = (props) => {
-
-    const [idaYVuelta, setIdaVueltaFlag] = useState(false);
-
-    if(props.idaVueltaCheck){
-        setIdaVueltaFlag(true);
-    }
     
     return (
         <div className='tableFlights'>
@@ -17,7 +11,7 @@ const FlightsList = (props) => {
                 .map((vueloIda) => (
                     <FlightSingle></FlightSingle>
                 ))}
-            {idaYVuelta && 
+            {props.idaVueltaCheck && 
             ( <div>
                 <h3>Vuelos vuelta</h3>
                 {props.vuelosVuelta
