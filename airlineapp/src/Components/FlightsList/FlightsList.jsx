@@ -15,13 +15,14 @@ const FlightsList = (props) => {
             <h3>Vuelos ida</h3>
             <FlightSingle></FlightSingle>
             <FlightSingle></FlightSingle>
-
-            if (idaYVuelta) {
-                 <><h3>Vuelos vuelta</h3>
-                 <FlightSingle></FlightSingle>
-                 <FlightSingle></FlightSingle></>
-            }
-
+            {idaYVuelta && 
+            ( <div>
+                <h3>Vuelos vuelta</h3>
+                <FlightSingle></FlightSingle>
+                <FlightSingle></FlightSingle>
+              </div>
+            )}
+            
             
         </div>
     );
