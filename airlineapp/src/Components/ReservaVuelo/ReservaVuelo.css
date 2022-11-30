@@ -1,8 +1,15 @@
+.topC2{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 .reserv{
+    width: 80%;
     border-radius: 20px;
     display: flex;
-    position: absolute;
-    background-color: rgb(107, 107, 202, 0.3);
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.336);;
+    background-color: rgb(107, 107, 202, 0.5);
     flex-direction: column;
     padding-bottom: 40px;
     top: 10%;
