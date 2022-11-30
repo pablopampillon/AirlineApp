@@ -12,7 +12,7 @@ const ReservaVuelo = () => {
     }
   }
   return (
-    <div>
+    <div className="topC2">
       <div>
         <h1>Aerolíneas PX</h1>
       </div>
@@ -23,7 +23,7 @@ const ReservaVuelo = () => {
         <div className="fieldset">
           <div className="orig">
             <h3>Selecciona País Origen</h3>
-            <select>
+            <select required>
               <option>Madrid</option>
               <option>Barcelona</option>
               <option>Valencia</option>
@@ -31,7 +31,12 @@ const ReservaVuelo = () => {
           </div>
           <div className="fecV">
             <h3>Fecha:</h3>
-            <input type="date" onChange={comprobarFec} id="fec1"></input>
+            <input
+              type="date"
+              onChange={comprobarFec}
+              id="fec1"
+              required
+            ></input>
           </div>
 
           <div className="dest">
