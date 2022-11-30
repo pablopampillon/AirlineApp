@@ -1,11 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
-import FlightsList from './components/FlightsList';
-
+import logo from "./logo.svg";
+import "./App.css";
+import ReservaVuelo from "./Components/ReservaVuelo/ReservaVuelo";
 function App() {
   return (
     <div className="App">
-      <FlightsList></FlightsList>
+      <ReservaVuelo />
     </div>
   );
 }
