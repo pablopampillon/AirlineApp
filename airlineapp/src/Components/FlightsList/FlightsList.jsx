@@ -13,13 +13,17 @@ const FlightsList = (props) => {
     return (
         <div className='tableFlights'>
             <h3>Vuelos ida</h3>
-            <FlightSingle></FlightSingle>
-            <FlightSingle></FlightSingle>
+            {props.vuelosIda
+                .map((vueloIda) => (
+                    <FlightSingle></FlightSingle>
+                ))}
             {idaYVuelta && 
             ( <div>
                 <h3>Vuelos vuelta</h3>
-                <FlightSingle></FlightSingle>
-                <FlightSingle></FlightSingle>
+                {props.vuelosVuelta
+                .map((vueloVuelta) => (
+                    <FlightSingle></FlightSingle>
+                ))}
               </div>
             )}
             
