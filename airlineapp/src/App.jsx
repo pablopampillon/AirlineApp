@@ -35,7 +35,7 @@ function App() {
   return (
     <div className="App">
       {console.log("VUELOS: "+vuelos)}
-      <FlightsList idaVueltaCheck={false} vuelosIda={vuelos} vuelosVuelta={vuelos}></FlightsList>
+      <FlightsList idaVueltaCheck={true} vuelosIda={vuelos} vuelosVuelta={vuelos}></FlightsList>
       {/* <ReservaVuelo/> */}
       {/* <ReservaVuelo /> */}
       {/* <DatosUsu /> */}

@@ -20,14 +20,15 @@ const FlightSingle = (props) => {
                 </div>
 
                 <div className='row'>
-                    <div className="left">
-                        <label className='dateIniLabel'><b>{"Fecha Salida: "}</b></label> <p className='dateIniRes'><b>{props.item.fecha}</b></p>
-                    </div>
+                    <div className='fechasDiv'>
+                        <div className="left">
+                            <label className='dateIniLabel'><b>{"Fecha Salida: "}</b></label> <p className='dateIniRes'><b>{props.item.fecha}</b></p>
+                        </div>
 
-                    <div className="right">
-                        <label className='dateFinLabel'><b>{"Fecha Llegada: "}</b></label> <p className='dateFinRes'><b>{"24/01/2002"}</b></p>
+                        <div className="right">
+                            <label className='dateFinLabel'><b>{"Fecha Llegada: "}</b></label> <p className='dateFinRes'><b>{"24/01/2002"}</b></p>
+                        </div>
                     </div>
-                    
                 </div>
 
                 <div className='row'>
@@ -36,7 +37,9 @@ const FlightSingle = (props) => {
                     </div>
 
                     <div className="right">
-                        <label className='priceLabel'><b>{"PRECIO "}</b></label> <p className='priceRes'><b>{props.item.precio}</b></p>
+                        <div className='priceBox'>
+                            <label className='priceLabel'><b>{"PRECIO "}</b></label> <p className='priceRes'><b>{props.item.precio+" €"}</b></p>
+                        </div>
                     </div>
 
                 </div>

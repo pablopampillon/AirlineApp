@@ -22,14 +22,51 @@
 
 .idFlightTxt{
     margin: 5%;
+    font-size: 30px;
 }
+
+.fechasDiv {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.418);
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: white;
+    display: block;
+    margin-bottom: 2%;
+    padding: 1%;
+}
+
+input[type=checkbox] {
+    width: 100%!important;
+    margin-top: 1%;
+    height: 40px;
+  }
 
 .contentFlightRes{
   background-color: rgb(107, 107, 202, 0.5);
-  padding: 50px;
+  padding: 2%;
   margin: 3%;
   border-radius: 15%;
   border-style: solid;
   border-width: 3px;
   border-color: rgba(0, 0, 0, 0.336);
+}
+
+.priceBox{
+    width: 55%;
+    background-color: rgba(255, 255, 255, 0.418);
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: white;
+    display: inline-block;
+}
+
+p {
+    font-size:18px;
+}
+
+label {
+    font-size: 20px;
 }
