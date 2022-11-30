@@ -9,14 +9,14 @@ const FlightsList = (props) => {
             <h2>Vuelos ida</h2>
             {props.vuelosIda
                 .map((vueloIda) => (
-                    <FlightSingle></FlightSingle>
+                    <FlightSingle item={vueloIda}></FlightSingle>
                 ))}
             {props.idaVueltaCheck && 
             ( <div>
                 <h2>Vuelos vuelta</h2>
                 {props.vuelosVuelta
                 .map((vueloVuelta) => (
-                    <FlightSingle></FlightSingle>
+                    <FlightSingle item={vueloVuelta}></FlightSingle>
                 ))}
               </div>
             )}

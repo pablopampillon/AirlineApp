@@ -4,24 +4,24 @@ import './FlightSingle.css';
 const airlineLogo = require("./dummy-airline-pic.jpg");
 
 
-const FlightSingle = () => {
+const FlightSingle = (props) => {
     return (
         <div className='flightSingleRes'>
             <div className="contentFlightRes">
                 <div className='row'>
                     <div className="left">
-                        <img src={airlineLogo} alt="airlineLogo" className="airlinePic1" /> <p className='airlineTxt'><b>{"Iberia"}</b></p>
+                        <img src={airlineLogo} alt="airlineLogo" className="airlinePic1" /> <p className='airlineTxt'><b>{props.item.company}</b></p>
                     </div>
 
                     <div className="right">
-                        <p className='idFlightTxt'><b>{"XY9834"}</b></p>
+                        <p className='idFlightTxt'><b>{props.item.vuelId}</b></p>
                     </div>
 
                 </div>
 
                 <div className='row'>
                     <div className="left">
-                        <label className='dateIniLabel'><b>{"Fecha Salida: "}</b></label> <p className='dateIniRes'><b>{"23/01/2002"}</b></p>
+                        <label className='dateIniLabel'><b>{"Fecha Salida: "}</b></label> <p className='dateIniRes'><b>{props.item.fecha}</b></p>
                     </div>
 
                     <div className="right">
@@ -36,7 +36,7 @@ const FlightSingle = () => {
                     </div>
 
                     <div className="right">
-                    <label className='priceLabel'><b>{"PRECIO "}</b></label> <p className='priceRes'><b>{"90$"}</b></p>
+                        <label className='priceLabel'><b>{"PRECIO "}</b></label> <p className='priceRes'><b>{props.item.precio}</b></p>
                     </div>
 
                 </div>
