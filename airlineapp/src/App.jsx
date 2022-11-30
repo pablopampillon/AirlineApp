@@ -5,6 +5,7 @@ import axios from "axios";
 import "./App.css";
 import ReservaVuelo from "./Components/ReservaVuelo/ReservaVuelo";
 import FlightsList from "./Components/FlightsList/FlightsList";
+import DatosUsu from "./Components/DatosUsu/DatosUsu";
 function App() {
 
   const vuelosIdaAux = ["Vuelo 1", "Vuelo 2"];
@@ -15,6 +16,8 @@ function App() {
     <div className="App">
       <FlightsList idaVueltaCheck={true} vuelosIda={vuelosIdaAux} vuelosVuelta={vuelosVueltaAux}></FlightsList>
       {/* <ReservaVuelo/> */}
+      <ReservaVuelo />
+      <DatosUsu />
     </div>
   );
 }
