@@ -25,8 +25,8 @@
 }
 
 .contentFlightRes{
-  background-color: rgb(138, 179, 236);
-  /* border: 15px solid rgb(162, 162, 162); */
+  background-color: rgb(194 211 236);
+  border: 15px solid rgb(162 162 162 / 15%);
   padding: 50px;
   margin: 3%;
   border-radius: 15%;
