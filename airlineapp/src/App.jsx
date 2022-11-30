@@ -8,16 +8,14 @@ import FlightsList from "./Components/FlightsList/FlightsList";
 import DatosUsu from "./Components/DatosUsu/DatosUsu";
 function App() {
 
-  const vuelosIdaAux = ["Vuelo 1", "Vuelo 2"];
-
-  const vuelosVueltaAux = ["VueloVuelta 1", "VueloVuelta 2"];
+  const vuelos = ["Vuelo 1", "Vuelo 2"];
 
   return (
     <div className="App">
-      <FlightsList idaVueltaCheck={true} vuelosIda={vuelosIdaAux} vuelosVuelta={vuelosVueltaAux}></FlightsList>
+      {/* <FlightsList idaVueltaCheck={false} vuelosIda={vuelos} vuelosVuelta={vuelos}></FlightsList> */}
       {/* <ReservaVuelo/> */}
       <ReservaVuelo />
-      <DatosUsu />
+      {/* <DatosUsu /> */}
     </div>
   );
 }
