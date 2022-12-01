@@ -1,8 +1,11 @@
 import React from "react";
 import "./ReservaVuelo.css";
 import { useState } from "react";
+import axios from "axios";
+import FlightsList from "../FlightsList/FlightsList";
 const ReservaVuelo = (props) => {
   let date = new Date();
+  const [isChecked, setIsChecked] = useState(false);
   let [checkBoxClass, setCheckBoxClass] = useState("notClicked");
   function comprobarFec() {
     let fec = document.getElementById("fec1").value;
@@ -10,10 +13,10 @@ const ReservaVuelo = (props) => {
     if (fec < dates) {
       alert("FECHA INTRODUCIDA NO VÁLIDA");
       fec = document.getElementById("fec1").value = dates;
-    } else if (props.idaVuelta) {
+    } else if (isChecked) {
       let fec2 = document.getElementById("fec2").value;
-      if (fec > fec2 || fec == fec2) {
-        fec2 = document.getElementById("fec2").value = fec + 1;
+      if (fec > fec2) {
+        fec2 = document.getElementById("fec2").value = fec;
         alert("FECHA DE VUELTA INTRODUCIDA NO VÁLIDA");
       }
     }
@@ -32,25 +35,69 @@ const ReservaVuelo = (props) => {
     const someid = document.querySelector("#fieldset2");
     if (checkBoxClass != "clicked") {
       setCheckBoxClass("clicked");
+      setIsChecked(true);
     } else {
       // cls.classList.toggle("notClicked");
       setCheckBoxClass("notClicked");
+      setIsChecked(false);
     }
   }
-  function search() {}
+  const [resultVuelos, setResultVuelos] = useState(false);
+  function search() {
+    let origen = document.getElementById("origStr").value;
+    let dest = document.getElementById("destStr").value;
+    let fec1 = document.getElementById("fec1").value;
+
+    axios
+      .get(`http://localhost:9000/reservas/vuelos/${origen}/${dest}/${fec1}`)
+
+      .then(function (response) {
+        setVuelosIda(response.data);
+        // vuelos = response.data;
+        // console.log("VUELOS: "+vuelos);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .finally(function () {
+        // console.log("Request finalizada");
+      });
+
+    if (checkBoxClass == "clicked") {
+      let fech2 = document.getElementById("fec2").value;
+      axios
+        .get(`http://localhost:9000/reservas/vuelos/${dest}/${origen}/${fech2}`)
+
+        .then(function (response) {
+          setVuelosVuelta(response.data);
+          // vuelos = response.data;
+          // console.log("VUELOS: "+vuelos);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+        .finally(function () {
+          // console.log("Request finalizada");
+        });
+    }
+    setResultVuelos(true);
+  }
+  let [vuelosIda, setVuelosIda] = useState([]);
+  let [vuelosVuelta, setVuelosVuelta] = useState([]);
+
   return (
     <div className="topC2">
       <div>
         <h1>Aerolíneas PX</h1>
       </div>
-      <div className="reserv">
+      <div className="reserv" onChange={comprobarFec}>
         <div className="title1">
           <h2>Reserva Tu Vuelo!</h2>
         </div>
         <div className="fieldset">
           <div className="orig">
             <h3>Selecciona País Origen</h3>
-            <select required>
+            <select id="origStr" required>
               <option>Madrid</option>
               <option>Barcelona</option>
               <option>Valencia</option>
@@ -68,9 +115,9 @@ const ReservaVuelo = (props) => {
 
           <div className="dest">
             <h3>Selecciona País Destino</h3>
-            <select>
+            <select id="destStr">
               <option>Madrid</option>
-              <option>Barcelona</option>
+              <option>Francia</option>
               <option>Valencia</option>
             </select>
           </div>
@@ -118,6 +165,13 @@ const ReservaVuelo = (props) => {
           <input type="button" onClick={search} value="Buscar" id="buscar" />
         </div>
       </div>
+      {resultVuelos && (
+        <FlightsList
+          isChecked={isChecked}
+          vuelosIda={vuelosIda}
+          vuelosVuelta={vuelosVuelta}
+        ></FlightsList>
+      )}
     </div>
   );
 };
