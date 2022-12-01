@@ -82,6 +82,21 @@ const ReservaVuelo = (props) => {
     }
     setResultVuelos(true);
   }
+  let [origen, setOrigen] = useState([]);
+  axios
+    .get(`http://localhost:9000/reservas/vuelos/origen`)
+
+    .then(function (response) {
+      setOrigen(response.data);
+      // vuelos = response.data;
+      // console.log("VUELOS: "+vuelos);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+    .finally(function () {
+      // console.log("Request finalizada");
+    });
   let [vuelosIda, setVuelosIda] = useState([]);
   let [vuelosVuelta, setVuelosVuelta] = useState([]);
 
@@ -98,9 +113,9 @@ const ReservaVuelo = (props) => {
           <div className="orig">
             <h3>Selecciona País Origen</h3>
             <select id="origStr" required>
-              <option>Madrid</option>
-              <option>Barcelona</option>
-              <option>Valencia</option>
+              {origen.map((orig) => (
+                <option>{orig}</option>
+              ))}
             </select>
           </div>
           <div className="fecV">
