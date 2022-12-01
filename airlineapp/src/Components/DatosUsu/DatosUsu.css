@@ -39,7 +39,7 @@
     border-width: 3px;
     border-color: white;
 }
-input[type=text] {
+.dataContainer > input[type=text] {
     width: 80%;
     height: 2em;
     border-radius: 4px;

@@ -4,6 +4,21 @@ import './FlightsList.css';
 
 
 const FlightsList = (props) => {
+    let [showPassengerForm, setShowPassengerForm] = useState(false);
+
+    function confirmarVuelo() {
+    //     // let reserVuelo = {userId: -1, vuelId: props.item.vuelId};
+        
+
+    //     // await axios.post('http://localhost:9000/reservas', reserVuelo);
+        if(showPassengerForm){
+            setShowPassengerForm(false);
+        }else{
+            setShowPassengerForm(true);
+        }
+        
+        // alert("ShowPassenger: "+ showPassengerForm);
+    }
     
     return (
         <div className='tableFlights'>
@@ -11,7 +26,7 @@ const FlightsList = (props) => {
             {/* <p>{props.vuelosIda[0].cOrigen+ "   --->  "+props.vuelosIda[0].cDestino}</p> */}
             {props.vuelosIda
                 .map((vueloIda) => (
-                    <FlightSingle item={vueloIda}></FlightSingle>
+                    <FlightSingle item={vueloIda} setConfirm={confirmarVuelo}></FlightSingle>
                 ))}
             {props.idaVueltaCheck && 
             ( <div>
@@ -19,7 +34,7 @@ const FlightsList = (props) => {
                 {/* <p>{props.vuelosVuelta[0].cOrigen+ "   <---  "+props.vuelosVuelta[0].cDestino}</p> */}
                 {props.vuelosVuelta
                 .map((vueloVuelta) => (
-                    <FlightSingle item={vueloVuelta}></FlightSingle>
+                    <FlightSingle item={vueloVuelta} setConfirm={confirmarVuelo}></FlightSingle>
                 ))}
               </div>
             )}

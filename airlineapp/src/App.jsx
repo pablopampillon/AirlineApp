@@ -27,14 +27,13 @@ function App() {
         console.log(error);
       })
       .finally(function () {
-        console.log("Request finalizada");
+        // console.log("Request finalizada");
       });
     }
   )
 
   return (
     <div className="App">
-      {console.log("VUELOS: "+vuelos)}
       <FlightsList idaVueltaCheck={true} vuelosIda={vuelos} vuelosVuelta={vuelos}></FlightsList>
       {/* <ReservaVuelo/> */}
       {/* <ReservaVuelo /> */}
