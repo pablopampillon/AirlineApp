@@ -97,6 +97,22 @@ const ReservaVuelo = (props) => {
     .finally(function () {
       // console.log("Request finalizada");
     });
+    let [destino, setDestino] = useState([]);
+    axios
+    .get(`http://localhost:9000/reservas/vuelos/destino`)
+  
+    .then(function (response) {
+      setDestino(response.data);
+      
+      // vuelos = response.data;
+      // console.log("VUELOS: "+vuelos);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+    .finally(function () {
+      // console.log("Request finalizada");
+    });
   let [vuelosIda, setVuelosIda] = useState([]);
   let [vuelosVuelta, setVuelosVuelta] = useState([]);
 
@@ -131,9 +147,9 @@ const ReservaVuelo = (props) => {
           <div className="dest">
             <h3>Selecciona País Destino</h3>
             <select id="destStr">
-              <option>Madrid</option>
-              <option>Francia</option>
-              <option>Valencia</option>
+             {destino.map((dest)=>
+             <option>{dest}</option>
+             )}
             </select>
           </div>
         </div>
