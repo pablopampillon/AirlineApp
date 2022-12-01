@@ -40,7 +40,7 @@
     border-color: white;
 }
 input[type=text] {
-    width: 80%!important;
+    width: 80%;
     height: 2em;
     border-radius: 4px;
     margin: 5px

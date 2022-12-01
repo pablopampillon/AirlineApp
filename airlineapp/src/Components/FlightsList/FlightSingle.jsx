@@ -1,10 +1,23 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useRef } from "react";
 import './FlightSingle.css';
 
 const airlineLogo = require("./dummy-airline-pic.jpg");
 
 
 const FlightSingle = (props) => {
+
+    const inputIdFlight = useRef();
+
+    // async function confirmarVuelo() {
+    //     // let reserVuelo = {userId: -1, vuelId: props.item.vuelId};
+    //     alert("Hello there...");
+
+    //     // await axios.post('http://localhost:9000/reservas', reserVuelo);
+
+        
+    // }
+
     return (
         <div className='flightSingleRes'>
             <div className="contentFlightRes">
@@ -14,7 +27,15 @@ const FlightSingle = (props) => {
                     </div>
 
                     <div className="right">
-                        <p className='idFlightTxt'><b>{props.item.vuelId}</b></p>
+                        <div className="cornerRight">
+                            <form>
+                                <input type="text" ref={inputIdFlight} className='idFlightTxt' id='idFlightTxt' name="idFlightTxt" value={props.item.vuelId} 
+                                readOnly></input> 
+                                <button className="reservButton" 
+                                // onClick={confirmarVuelo}
+                                >Reservar</button>
+                            </form>
+                        </div>
                     </div>
 
                 </div>
