@@ -7,11 +7,39 @@ import ReservaVuelo from "./Components/ReservaVuelo/ReservaVuelo";
 import FlightsList from "./Components/FlightsList/FlightsList";
 import DatosUsu from "./Components/DatosUsu/DatosUsu";
 function App() {
-  const vuelos = ["Vuelo 1", "Vuelo 2"];
-  const [idaVuelta, setidaVuelta] = useState(false);
+  let [vuelos, setVuelos] = useState([]);
+  // let vuelos;
+  const origStr = "Madrid";
+  const destStr = "Francia";
+  const fecIniStr = "asdf";
+
+  useEffect(() => {
+    axios
+      .get(
+        `http://localhost:9000/reservas/vuelos/${origStr}/${destStr}/${fecIniStr}`
+      )
+
+      .then(function (response) {
+        setVuelos(response.data);
+        // vuelos = response.data;
+        // console.log("VUELOS: "+vuelos);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .finally(function () {
+        console.log("Request finalizada");
+      });
+  });
+
   return (
     <div className="App">
-      {/* <FlightsList idaVueltaCheck={false} vuelosIda={vuelos} vuelosVuelta={vuelos}></FlightsList> */}
+      {console.log("VUELOS: " + vuelos)}
+      <FlightsList
+        idaVueltaCheck={true}
+        vuelosIda={vuelos}
+        vuelosVuelta={vuelos}
+      ></FlightsList>
       {/* <ReservaVuelo/> */}
       <ReservaVuelo setidaVuelta={setidaVuelta} idaVuelta={idaVuelta} />
       {/* <DatosUsu /> */}
